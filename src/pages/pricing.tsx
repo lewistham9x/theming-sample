@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icons } from "../components/common/icons";
-import { buttonVariants } from "../components/ui/button";
+import { Button, buttonVariants } from "../components/ui/button";
 import { cn } from "../lib/utils";
 import { GeneralLayout } from "../layout/general-layout";
 
@@ -17,7 +17,7 @@ export default function PricingPage() {
             Simple, transparent pricing
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Unlock all features including unlimited posts for your blog.
+            Unlock all features including unlimited posts for your notes
           </p>
         </div>
         <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
@@ -27,23 +27,17 @@ export default function PricingPage() {
             </h3>
             <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
               <li className="flex items-center">
-                <Icons.check className="mr-2 h-4 w-4" /> Unlimited Posts
+                <Icons.check className="mr-2 h-4 w-4" /> Unlimited Folders
               </li>
               <li className="flex items-center">
-                <Icons.check className="mr-2 h-4 w-4" /> Unlimited Users
+                <Icons.check className="mr-2 h-4 w-4" /> Unlimited Notes
               </li>
 
               <li className="flex items-center">
                 <Icons.check className="mr-2 h-4 w-4" /> Custom domain
               </li>
               <li className="flex items-center">
-                <Icons.check className="mr-2 h-4 w-4" /> Dashboard Analytics
-              </li>
-              <li className="flex items-center">
-                <Icons.check className="mr-2 h-4 w-4" /> Access to Discord
-              </li>
-              <li className="flex items-center">
-                <Icons.check className="mr-2 h-4 w-4" /> Premium Support
+                <Icons.check className="mr-2 h-4 w-4" /> Cloud Sync
               </li>
             </ul>
           </div>
@@ -54,16 +48,10 @@ export default function PricingPage() {
                 Billed Monthly
               </p>
             </div>
-            <Link href="/login" className={cn(buttonVariants({ size: "lg" }))}>
-              Get Started
+            <Link href="/login">
+              <Button size={"lg"}>Get Started</Button>
             </Link>
           </div>
-        </div>
-        <div className="mx-auto flex w-full max-w-[58rem] flex-col gap-4">
-          <p className="max-w-[85%] leading-normal text-muted-foreground sm:leading-7">
-            Taxonomy is a demo app.{" "}
-            <strong>You can test the upgrade and won&apos;t be charged.</strong>
-          </p>
         </div>
       </section>
     </GeneralLayout>

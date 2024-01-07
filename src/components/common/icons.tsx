@@ -15,6 +15,7 @@ import {
     LucideProps,
     Moon,
     MoreVertical,
+    Newspaper,
     Pizza,
     Plus,
     Settings,
@@ -26,7 +27,7 @@ import {
   } from "lucide-react"
   
   export const Icons = {
-    logo: Command,
+    logo: Newspaper,
     close: X,
     spinner: Loader2,
     chevronLeft: ChevronLeft,

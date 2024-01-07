@@ -1,7 +1,6 @@
 export const siteConfig = {
-  name: "Test",
-  description:
-    "An open source application built using the new router, server components and everything new in Next.js 13.",
+  name: "Paper",
+  description: "",
   url: "https://tx.shadcn.com",
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
