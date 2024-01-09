@@ -1,6 +1,5 @@
 "use client";
 
-import { RadioGroup } from "@radix-ui/react-dropdown-menu";
 import { Button } from "src/components/ui/button";
 import {
   Card,
@@ -13,7 +12,7 @@ import {
 import { Icons } from "src/components/ui/icons";
 import { Input } from "src/components/ui/input";
 import { Label } from "src/components/ui/label";
-import { RadioGroupItem } from "src/components/ui/radio-group";
+import { RadioGroupItem, RadioGroup } from "src/components/ui/radio-group";
 import {
   Select,
   SelectTrigger,
