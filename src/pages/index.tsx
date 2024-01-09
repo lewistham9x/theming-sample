@@ -1,108 +1,63 @@
-import Link from "next/link";
-import { Button, buttonVariants } from "../components/ui/button";
-import { cn } from "../lib/utils";
-import { GeneralLayout } from "../layout/general-layout";
+import { CardsActivityGoal } from "./cards/activity-goal";
+import { CardsCalendar } from "./cards/calendar";
+import { CardsChat } from "./cards/chat";
+import { CardsCookieSettings } from "./cards/cookie-settings";
+import { CardsCreateAccount } from "./cards/create-account";
+import { CardsDataTable } from "./cards/data-table";
+import { CardsMetric } from "./cards/metric";
+import { CardsPaymentMethod } from "./cards/payment-method";
+import { CardsReportIssue } from "./cards/report-issue";
+import { CardsShare } from "./cards/share";
+import { CardsStats } from "./cards/stats";
+import { CardsTeamMembers } from "./cards/team-members";
 
-const FEATURES_DATA = [
-  {
-    title: "Effortless Note Creation & Organization",
-    description:
-      "Intuitively create and organize digital notes with customizable folders.",
-  },
-  {
-    title: "Real-Time Collaborative Editing",
-    description:
-      "Foster efficient teamwork through shared notes with simultaneous editing.",
-  },
-  {
-    title: "Task Integration for Productivity",
-    description:
-      "Transform notes into tasks with due dates and integrate with popular tools.",
-  },
-  {
-    title: "Cross-Platform Accessibility",
-    description:
-      "Access notes anytime, anywhere, on any device with synchronized versions.",
-  },
-  {
-    title: "Secure Storage & Privacy",
-    description:
-      "Ensure digital note safety with end-to-end encryption and secure authentication.",
-  },
-  {
-    title: "Efficient Search & Organization",
-    description:
-      "Easily find and manage notes using powerful search and tagging features.",
-  },
-
-];
-export default function Home() {
+export default function CardsDemo() {
   return (
-    <>
-      <GeneralLayout>
-        <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-          <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-            <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-              Paper Notes
-            </h1>
-            <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-              Where Ideas Take Flight, Together!
-            </p>
-            <div className="space-x-4">
-              <Link href="/login">
-                <Button size={"lg"}>Get Started</Button>
-              </Link>
+    <div className="md:grids-col-2 grid md:gap-4 lg:grid-cols-10 xl:grid-cols-11 xl:gap-4">
+      <div className="space-y-4 lg:col-span-4 xl:col-span-6 xl:space-y-4">
+        <CardsStats />
+        <div className="grid gap-1 sm:grid-cols-[280px_1fr] md:hidden">
+          <CardsCalendar />
+          <div className="pt-3 sm:pl-2 sm:pt-0 xl:pl-4">
+            <CardsActivityGoal />
+          </div>
+          <div className="pt-3 sm:col-span-2 xl:pt-4">
+            <CardsMetric />
+          </div>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          <div className="space-y-4 xl:space-y-4">
+            <CardsTeamMembers />
+            <CardsCookieSettings />
+            <CardsPaymentMethod />
+          </div>
+          <div className="space-y-4 xl:space-y-4">
+            <CardsChat />
+            <CardsCreateAccount />
+            <div className="hidden xl:block">
+              <CardsReportIssue />
             </div>
           </div>
-        </section>
-        <section
-          id="features"
-          className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
-        >
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-4xl">
-              Features
-            </h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              PaperNote is a versatile digital platform designed to elevate your
-              note-taking experience.
-            </p>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              Seamlessly create, organize, and collaborate on notes with
-              powerful features that enhance productivity and ensure
-              accessibility across all your devices.
-            </p>
+        </div>
+      </div>
+      <div className="space-y-4 lg:col-span-6 xl:col-span-5 xl:space-y-4">
+        <div className="hidden gap-1 sm:grid-cols-[280px_1fr] md:grid">
+          <CardsCalendar />
+          <div className="pt-3 sm:pl-2 sm:pt-0 xl:pl-3">
+            <CardsActivityGoal />
           </div>
-          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-            {FEATURES_DATA.map((feature, index) => (
-              <DisplayElement
-                key={index}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
+          <div className="pt-3 sm:col-span-2 xl:pt-3">
+            <CardsMetric />
           </div>
-       
-        </section>
-      </GeneralLayout>
-    </>
-  );
-}
-
-interface DisplayElementProps {
-  title: string;
-  description: string;
-}
-const DisplayElement = (props: DisplayElementProps) => {
-  const { title, description } = props;
-  return (
-    <div className="relative overflow-hidden rounded-lg border bg-background p-2">
-      <div className="flex flex-col justify-between rounded-md p-4">
-        <div className="space-y-2">
-          <h3 className="font-bold">{title}</h3>
-          <p className="text-sm text-muted-foreground">{description}</p>
+        </div>
+        <div className="hidden md:block">
+          <CardsDataTable />
+        </div>
+        <CardsShare />
+        <div className="xl:hidden">
+          <CardsReportIssue />
         </div>
       </div>
     </div>
   );
-};
+}
